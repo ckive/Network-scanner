@@ -1,0 +1,170 @@
+{
+    "amazon.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.350882
+    },
+    "asee.org": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508885
+    },
+    "auditoryneuroscience.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508883
+    },
+    "clocktab.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508878
+    },
+    "en.wikipedia.org": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508813
+    },
+    "facebook.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508818
+    },
+    "fandom.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.350883
+    },
+    "gradeinflation.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508887
+    },
+    "illinois.edu": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.350887
+    },
+    "imdb.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508828
+    },
+    "instagram.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508842
+    },
+    "it.eecs.northwestern.edu": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508856
+    },
+    "kellogg.northwestern.edu": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508852
+    },
+    "kli.org": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508914
+    },
+    "mccormick.northwestern.edu": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.350885
+    },
+    "northwestern.edu": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508847
+    },
+    "pinterest.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508832
+    },
+    "pmichaud.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.350891
+    },
+    "reddit.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508825
+    },
+    "spacejam.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.350889
+    },
+    "stevetarzia.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508875
+    },
+    "tripadvisor.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508835
+    },
+    "twitter.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508816
+    },
+    "uchicago.edu": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508859
+    },
+    "users.cs.northwestern.edu": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508854
+    },
+    "walmart.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508844
+    },
+    "yelp.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508823
+    },
+    "youtube.com": {
+        "http_server": "",
+        "ipv4_addresses": [],
+        "ipv6_addresses": [],
+        "scan_time": 1615191846.3508806
+    }
+}
