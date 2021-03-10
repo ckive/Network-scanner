@@ -36,43 +36,47 @@ def output_parser(output: str) -> dict:
     return parsed
 """
 
-#given list of dns, scans for ipv4 addrs, returns list of unique ipv4 addrs
-def ipv4_scanner(target: str, dnss: list) -> list:
+#given list of dns, scans for ipvX addrs, returns list of unique ipvX addrs
+def ipvX_scanner(target: str, dnss: list, version: int) -> list:
+    if version == 4:
+        query_type = "-query=A"
+    elif version == 6:
+        query_type = "-query=AAAA"
+    else:
+        #bad bad error
+        sys.exit(2)
     addrs = []
     for dns in dnss:
-        result = subprocess.run(["nslookup", target, dns], capture_output=True, text=True)
+        try:
+            result = subprocess.run(["nslookup", query_type, target, dns], timeout=2, capture_output=True, text=True)
+        except ValueError as error:
+            print(error)
+            sys.exit(1)
+        except subprocess.TimeoutExpired as error:
+            print("timeout happened, moving on to next dns or next domain")
+            print(error)
+            break #Design choice: don't stop, pull through
+            #sys.exit(1)
+
         a = result.stdout.split('\n\n')[1]
         for row in a.split('\n'):
-            if row.startswith("Address"):           #works with multiple ipv4s, each ipv4 will have a "Address: XXX.XXX.XXX.XXX"
+            if row.startswith("Address"):
                 _, addr = row.split(' ')
                 if addr not in addrs:
                     addrs.append(addr)
             elif row.startswith("***"):
                 #No answer, try next DNS
                 break
-    #TODO: HANDLE EXCEPTIONS!
+        #print(addrs)
     return addrs
-"""
-#given list of dns, scans for ipv4 addrs, returns list of unique ipv4 addrs
-def ipv6_scanner(target: str, dnss: list) -> list[str]:
-    addrs = []
-    for dns in dnss:
-        result = subprocess.run(["nslookup", "-query=AAAA" target, dns], capture_output=True, text=True)
-        a = result.stdout.split('\n\n')[1]
-        for row in a.split('\n'):
-            if row.startswith("Address"):           #works with multiple ipv6s
-                _, addr = row.split(' ')
-                if addr not in addrs:
-                    addrs.append(addr)
-            elif row.startswith("***"):
-                #No answer, try next DNS
-                break
-    return addrs
-"""
+
+
 
 def main():
     if len(sys.argv) != 3:
         usage()
+        sys.exit(1)
+    
     infile = sys.argv[1]
     outfile = sys.argv[2]
     if not validate(infile, outfile):
@@ -80,22 +84,22 @@ def main():
     
     with open("public_dns_resolvers.txt") as f:
         DNS_SERVERS = [DNS_SERVERS.rstrip() for DNS_SERVERS in f]
-    print(DNS_SERVERS)
+    #print(DNS_SERVERS)
 
     with open(infile) as f:
         scan_domains = [scan_domains.rstrip() for scan_domains in f]
-        print(scan_domains)
+        #print(scan_domains)
     scan_result = {}
     for domain in scan_domains:
         scan_time = time.time()
         ### Scanning Helpers 
-        ipv4addrs = ipv4_scanner(domain, DNS_SERVERS)
-        #ipv6addrs = ipv6_scanner(domain, DNS_SERVERS)
+        ipv4addrs = ipvX_scanner(domain, DNS_SERVERS, 4)
+        ipv6addrs = ipvX_scanner(domain, DNS_SERVERS, 6)
         ###
         scan_result[domain] = {
             "scan_time": scan_time,
-            "ipv4_addresses": 0,
-            "ipv6_addresses": [],
+            "ipv4_addresses": ipv4addrs,
+            "ipv6_addresses": ipv6addrs,
             "http_server": "",
         }
     with open(outfile, "w") as f:
