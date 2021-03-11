@@ -1,0 +1,15 @@
+{
+    "reddit.com": {
+        "hsts": true,
+        "http_server": "snooserv",
+        "insecure_http": false,
+        "ipv4_addresses": [
+            "69.171.224.36"
+        ],
+        "ipv6_addresses": [
+            "2001::9df0:c05"
+        ],
+        "redirect_to_https": true,
+        "scan_time": 1615469853.0102553
+    }
+}

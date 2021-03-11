@@ -1,5 +1,7 @@
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("echo")
-args = parser.parse_args()
-print(args.echo)
+import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+location = ("insecure.stevetarzia.com/basic.html", 80)
+result = sock.connect_ex(location)
+
+print(result)
