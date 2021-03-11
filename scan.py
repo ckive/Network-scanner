@@ -24,6 +24,7 @@ def validate(inpath, outpath) -> bool:
 
 #Part 2 scanners to implement
 
+#Part b,c
 #given list of dns, scans for ipvX addrs, returns list of unique ipvX addrs
 def ipvX_scanner(target: str, dnss: list, version: int) -> list:
     if version == 4:
@@ -58,6 +59,7 @@ def ipvX_scanner(target: str, dnss: list, version: int) -> list:
         #print(addrs)
     return addrs
 
+#Part d,e,f,g
 def httpinfo_scanner(target: str) -> dict:
     response = {}
     #response = {
@@ -135,6 +137,31 @@ def httpinfo_scanner(target: str) -> dict:
     #return dict
     return response
 
+#Part h
+def tls_versions_scanner(target: str) -> str:
+    pass
+
+#Part i
+def root_ca_scanner(target: str) -> str:
+    root_ca = None
+    url = target + ":443"
+    pipein = subprocess.run(["echo"], check=True, capture_output=True)
+    outcome = subprocess.run(['openssl', 's_client', '-connect', str(url)],
+                                input=pipein.stdout, capture_output=True)
+    
+    chunks = outcome.stdout.decode("utf-8").split("---")
+    cert_chain = chunks[1]
+    for row in cert_chain.split('\n'):
+        row = row.lstrip()
+        if row.startswith("i:O"): # row we want
+            split1 = row.split(',')
+            intermediary = split1[0]
+            split2 = intermediary.split('=')
+            root_ca = split2[1].lstrip()
+
+            print(root_ca)
+    return root_ca
+
 def main():
     if len(sys.argv) != 3:
         usage()
@@ -154,12 +181,14 @@ def main():
         #print(scan_domains)
     scan_result = {}
     for domain in scan_domains:
+        #Part a
         scan_time = time.time()
         ### Scanning Helpers 
         ipv4addrs = ipvX_scanner(domain, DNS_SERVERS, 4)
         ipv6addrs = ipvX_scanner(domain, DNS_SERVERS, 6)
         http_info = httpinfo_scanner(domain)
         print(http_info)
+        root_ca = root_ca_scanner(domain)
         ###
         scan_result[domain] = {
             "scan_time": scan_time,
@@ -169,6 +198,9 @@ def main():
             "insecure_http": http_info["insecure_http"], 
             "redirect_to_https": http_info["redirect_to_https"],
             "hsts": http_info["hsts"],
+            "tls_versions": [],
+            "root_ca": root_ca,
+
         }
 
     with open(outfile, "w") as f:
