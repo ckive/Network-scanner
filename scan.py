@@ -1,6 +1,7 @@
-import sys, json, os, time, subprocess, socket
+import sys, json, os, time, subprocess, socket, requests, maxminddb
+import dns.resolver
+import dns.reversename
 from pathlib import Path
-import requests
 
 
 def usage():
@@ -138,7 +139,8 @@ def httpinfo_scanner(target: str) -> dict:
     return response
 
 #Part h
-def tls_versions_scanner(target: str) -> str:
+def tls_versions_scanner(target: str) -> list:
+    #TODO: dunno how to see if it's successful yet...
     pass
 
 #Part i
@@ -161,6 +163,38 @@ def root_ca_scanner(target: str) -> str:
 
             print(root_ca)
     return root_ca
+
+#Part L
+def geo_location_scanner(ipaddrs: list) -> list:
+    locations = []
+    reader = maxminddb.open_database('GeoLite2-City.mmdb')
+    #Want "city, province, country", "city, province, country" ...list
+    for ipaddr in ipaddrs:
+        info = reader.get(ipaddr)
+        if 'city' not in info:
+            if 'province' not in info:
+                if 'country' not in info:
+                    #no data option
+                    location = ''
+                else:
+                    #only country info
+                    location = info['country']['names']['en']
+            else:
+                #only province & country
+                location = info['subdivisions'][0]['names']['en'] \
+                    +', '+info['country']['names']['en']
+        else:
+            #city,province,country all known
+            location = info['city']['names']['en'] +', '+ \
+                info['subdivisions'][0]['names']['en'] \
+                +', '+info['country']['names']['en']
+        #Check for duplicates
+        if location in locations:
+            pass
+        else:
+            locations.append(location)
+    
+    return locations
 
 def main():
     if len(sys.argv) != 3:
@@ -187,20 +221,25 @@ def main():
         ipv4addrs = ipvX_scanner(domain, DNS_SERVERS, 4)
         ipv6addrs = ipvX_scanner(domain, DNS_SERVERS, 6)
         http_info = httpinfo_scanner(domain)
-        print(http_info)
+        
+        #print(http_info)
+        
         root_ca = root_ca_scanner(domain)
+        geolocations = geo_location_scanner(ipv4addrs)
         ###
         scan_result[domain] = {
             "scan_time": scan_time,
             "ipv4_addresses": ipv4addrs,
             "ipv6_addresses": ipv6addrs,
-            "http_server": http_info["http_server"],
+            "http_server": http_info["http_server"],        #TODO: Apache == Apache/2.5.3 (Ubuntu)
             "insecure_http": http_info["insecure_http"], 
             "redirect_to_https": http_info["redirect_to_https"],
             "hsts": http_info["hsts"],
-            "tls_versions": [],
+            "tls_versions": [],         #TODO
             "root_ca": root_ca,
-
+            "rdns_names": [],           #TODO
+            "rtt_range": [2, 20],            #TODO
+            "geo_locations": geolocations,
         }
 
     with open(outfile, "w") as f:
