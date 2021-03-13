@@ -4,36 +4,36 @@
             "Ashburn, Virginia, United States"
         ],
         "hsts": false,
-        "http_server": null,
+        "http_server": "Server",
         "insecure_http": true,
         "ipv4_addresses": [
+            "54.239.28.85",
             "176.32.103.205",
-            "205.251.242.103",
-            "54.239.28.85"
+            "205.251.242.103"
         ],
         "ipv6_addresses": [],
         "rdns_names": [],
-        "redirect_to_https": false,
+        "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
             2,
             20
         ],
-        "scan_time": 1615604110.5089602,
+        "scan_time": 1615616179.1998973,
         "tls_versions": []
     },
     "tripadvisor.com": {
         "geo_locations": [
-            "United States",
-            "London, England, United Kingdom"
+            "London, England, United Kingdom",
+            "United States"
         ],
         "hsts": false,
         "http_server": "envoy",
         "insecure_http": true,
         "ipv4_addresses": [
+            "192.229.182.112",
             "192.229.189.15",
-            "192.229.162.112",
-            "192.229.182.112"
+            "192.229.162.112"
         ],
         "ipv6_addresses": [],
         "rdns_names": [],
@@ -43,7 +43,7 @@
             2,
             20
         ],
-        "scan_time": 1615604106.965214,
+        "scan_time": 1615616171.423311,
         "tls_versions": []
     }
 }
