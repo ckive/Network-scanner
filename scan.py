@@ -38,7 +38,8 @@ def ipvX_scanner(target: str, dnss: list, version: int) -> list:
     addrs = []
     for dns in dnss:
         try:
-            result = subprocess.run(["nslookup", query_type, target, dns], timeout=2, capture_output=True, text=True)
+            result = subprocess.run(["nslookup", query_type, target, dns], \
+                timeout=2, stdout=subprocess.PIPE, universal_newlines=True)
         except ValueError as error:
             print(error)
             sys.exit(1)
@@ -147,9 +148,9 @@ def tls_versions_scanner(target: str) -> list:
 def root_ca_scanner(target: str) -> str:
     root_ca = None
     url = target + ":443"
-    pipein = subprocess.run(["echo"], check=True, capture_output=True)
+    pipein = subprocess.run(["echo"], check=True, stdout=subprocess.PIPE)
     outcome = subprocess.run(['openssl', 's_client', '-connect', str(url)],
-                                input=pipein.stdout, capture_output=True)
+                                input=pipein.stdout, stdout=subprocess.PIPE)
     
     chunks = outcome.stdout.decode("utf-8").split("---")
     cert_chain = chunks[1]
@@ -160,8 +161,9 @@ def root_ca_scanner(target: str) -> str:
             intermediary = split1[0]
             split2 = intermediary.split('=')
             root_ca = split2[1].lstrip()
-
+            print("##################")
             print(root_ca)
+            print("##################")
     return root_ca
 
 #Part L

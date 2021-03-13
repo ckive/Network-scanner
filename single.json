@@ -4,19 +4,22 @@
             "Ashburn, Virginia, United States"
         ],
         "hsts": false,
-        "http_server": "Server",
+        "http_server": null,
         "insecure_http": true,
         "ipv4_addresses": [
-            "54.239.28.85",
+            "176.32.103.205",
             "205.251.242.103",
-            "176.32.103.205"
+            "54.239.28.85"
         ],
         "ipv6_addresses": [],
         "rdns_names": [],
-        "redirect_to_https": true,
+        "redirect_to_https": false,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615548573.7363389,
+        "rtt_range": [
+            2,
+            20
+        ],
+        "scan_time": 1615604110.5089602,
         "tls_versions": []
     },
     "tripadvisor.com": {
@@ -25,22 +28,22 @@
             "London, England, United Kingdom"
         ],
         "hsts": false,
-        "http_server": null,
+        "http_server": "envoy",
         "insecure_http": true,
         "ipv4_addresses": [
-            "192.229.162.112",
             "192.229.189.15",
+            "192.229.162.112",
             "192.229.182.112"
         ],
         "ipv6_addresses": [],
         "rdns_names": [],
-        "redirect_to_https": false,
+        "redirect_to_https": true,
         "root_ca": "GlobalSign Root CA - R3",
         "rtt_range": [
             2,
             20
         ],
-        "scan_time": 1615548550.4956884,
+        "scan_time": 1615604106.965214,
         "tls_versions": []
     }
 }
