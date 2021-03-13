@@ -150,7 +150,7 @@ def root_ca_scanner(target: str) -> str:
     url = target + ":443"
     pipein = subprocess.run(["echo"], check=True, stdout=subprocess.PIPE)
     outcome = subprocess.run(['openssl', 's_client', '-connect', str(url)],
-                                input=pipein.stdout, stdout=subprocess.PIPE)
+                                input=pipein.stdout, stdout=subprocess.PIPE, timeout=2)
     
     chunks = outcome.stdout.decode("utf-8").split("---")
     cert_chain = chunks[1]
