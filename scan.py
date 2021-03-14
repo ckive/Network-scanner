@@ -148,22 +148,26 @@ def tls_versions_scanner(target: str) -> list:
 def root_ca_scanner(target: str) -> str:
     root_ca = None
     url = target + ":443"
-    pipein = subprocess.run(["echo"], check=True, stdout=subprocess.PIPE)
-    outcome = subprocess.run(['openssl', 's_client', '-connect', str(url)],
-                                input=pipein.stdout, stdout=subprocess.PIPE, timeout=2)
+    try:
+        pipein = subprocess.run(["echo"], check=True, stdout=subprocess.PIPE)
+        outcome = subprocess.run(['openssl', 's_client', '-connect', str(url)],
+                                    input=pipein.stdout, stdout=subprocess.PIPE, timeout=2)
     
-    chunks = outcome.stdout.decode("utf-8").split("---")
-    cert_chain = chunks[1]
-    for row in cert_chain.split('\n'):
-        row = row.lstrip()
-        if row.startswith("i:O"): # row we want
-            split1 = row.split(',')
-            intermediary = split1[0]
-            split2 = intermediary.split('=')
-            root_ca = split2[1].lstrip()
-            print("##################")
-            print(root_ca)
-            print("##################")
+        chunks = outcome.stdout.decode("utf-8").split("---")
+        cert_chain = chunks[1]
+        for row in cert_chain.split('\n'):
+            row = row.lstrip()
+            if row.startswith("i:O"): # row we want
+                split1 = row.split(',')
+                intermediary = split1[0]
+                split2 = intermediary.split('=')
+                root_ca = split2[1].lstrip()
+                print("##################")
+                print(root_ca)
+                print("##################")
+    except Exception as e:
+        print("Exception: prob timed out")
+    
     return root_ca
 
 #Part j
