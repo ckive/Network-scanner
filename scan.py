@@ -176,7 +176,7 @@ def rdns_scanner(ipaddrs: list) -> list:
     for ipaddr in ipaddrs:
         try:
             n = dns.reversename.from_address(ipaddr)
-            found = dns.resolver.resolve(n, )
+            found = dns.resolver.resolve(n, 'PTR')
             (n, "PTR")[0]
             rdns.append(found)
         except TypeError:
