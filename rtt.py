@@ -5,7 +5,7 @@ def rtt_scanner(ipaddrs: list) -> list:
     rt_times = []
     for addr in ipaddrs:
         try:
-            result = subprocess.run(["sh", "-c", "time echo -e '\x1dclose\x0d' | telnet 172.217.6.110 443"], \
+            result = subprocess.run(["sh", "-c", "time echo -e '\x1dclose\x0d' | telnet {ip}".format(ip=addr)], \
                 check=True, stdout=subprocess.PIPE, timeout=2)
 
             
