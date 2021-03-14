@@ -16,7 +16,17 @@ def rdns(ipaddrs: list) -> list:
         print(e)
 
 ips = ["165.124.180.20", "59.24.3.174"]
-for ip in ips:
-    n = dns.reversename.from_address(ip)
-    rdns = dns.resolver.query(n, "PTR")[0]
-    pritn(rdns)
+
+
+def rdns_scanner(ipaddrs: list) -> list:
+    rdns = []
+    for ipaddr in ipaddrs:
+        try:
+            n = dns.reversename.from_address(ipaddr)
+            found = dns.resolver.query(n, "PTR")[0]
+            rdns.append(found)
+        except Exception as e:
+            print("failed to reverse, try next ip")
+    return rdns
+
+rdns_scanner(ips)
