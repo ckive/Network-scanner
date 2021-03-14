@@ -25,6 +25,7 @@ def tls_scanner(target: str) -> list:
     except Exception as e:
         print("Exception")
     
+    print(tls_v)
     return tls_v
 
 tls_scanner("stevetarzia.com")
