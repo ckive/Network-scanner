@@ -176,8 +176,11 @@ def rdns_scanner(ipaddrs: list) -> list:
     for ipaddr in ipaddrs:
         try:
             n = dns.reversename.from_address(ipaddr)
-            found = dns.resolver.query(n, "PTR")[0]
+            found = dns.resolver.resolve(n, )
+            (n, "PTR")[0]
             rdns.append(found)
+        except TypeError:
+            print("type error...'ptr' thing")
         except Exception as e:
             print("failed to reverse, try next ip")
     return rdns
