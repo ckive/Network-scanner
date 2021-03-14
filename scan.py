@@ -140,9 +140,32 @@ def httpinfo_scanner(target: str) -> dict:
     return response
 
 #Part h
-def tls_versions_scanner(target: str) -> list:
-    #TODO: dunno how to see if it's successful yet...
-    pass
+def tls_scanner(target: str) -> list:
+    tls_v = []
+
+    url = target + ":443"
+    pro = {
+        '-tls1': "TLSv1.0",
+        '-tls1_1': "TLSv1.1",
+        '-tls1_2': "TLSv1.2",
+        '-tls1_3': "TLSv1.3",
+    }
+    try:
+        for proto in pro.keys():
+            pipein = subprocess.run(["echo"], check=True, stdout=subprocess.PIPE)
+            outcome = subprocess.run(['openssl', 's_client', proto, '-connect', str(url)],
+                                        input=pipein.stdout, stdout=subprocess.PIPE, timeout=2)
+
+            for row in outcome.stdout.decode().split('\n'):
+                row = row.lstrip()
+                if row.startswith("Server certificate"): # row we want
+                    #supports
+                    tls_v.append(pro[proto])
+    except Exception as e:
+        print("Exception")
+    
+    print(tls_v)
+    return tls_v
 
 #Part i
 def root_ca_scanner(target: str) -> str:
@@ -181,6 +204,7 @@ def rdns_scanner(ipaddrs: list) -> list:
             rdns.append(str(found))
         except Exception as e:
             print("failed to reverse, try next ip")
+    return rdns
 
 #Part L
 def geo_location_scanner(ipaddrs: list) -> list:
@@ -241,7 +265,7 @@ def main():
         http_info = httpinfo_scanner(domain)
         
         #print(http_info)
-        
+        tls_vs = tls_scanner(domain)
         root_ca = root_ca_scanner(domain)
         rdns_names = rdns_scanner(ipv4addrs)
         print(rdns_names)
@@ -252,11 +276,11 @@ def main():
             "scan_time": scan_time,
             "ipv4_addresses": ipv4addrs,
             "ipv6_addresses": ipv6addrs,
-            "http_server": http_info["http_server"],        #TODO: Apache == Apache/2.5.3 (Ubuntu)
+            "http_server": http_info["http_server"],
             "insecure_http": http_info["insecure_http"], 
             "redirect_to_https": http_info["redirect_to_https"],
             "hsts": http_info["hsts"],
-            "tls_versions": [],         #TODO
+            "tls_versions": tls_vs,
             "root_ca": root_ca,
             "rdns_names": rdns_names,
             "rtt_range": [2, 20],            #TODO
