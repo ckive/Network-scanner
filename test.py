@@ -83,8 +83,8 @@ def RTT(host="127.0.0.1", port=80, timeout=10):
         # RTT
         return t2-t1
 # url address 
-#url = "http://205.251.242.103:433"
-#RTT("205.251.242.103", 433) 
+url = "http://205.251.242.103:433"
+RTT("205.251.242.103", 433) 
 
 
 #socket.gethostbyaddr("165.124.147.150")
@@ -96,10 +96,10 @@ def geo_location_scanner(ipaddrs: list) -> list:
     #Want "city, province, country", "city, province, country" ...list
     for ipaddr in ipaddrs:
         info = reader.get(ipaddr)
-        print(info.keys())
-        print("#########")
+        #print(info.keys())
+        #print("#########")
         b = info['country']['names']['en']
-        print(b)
+        #print(b)
         #city = info['city']['names']['en']
         #province = info['subdivisions'][0]['names']['en']
         #country = info['country']['names']['en']
@@ -111,4 +111,41 @@ a = geo_location_scanner([
             "172.67.220.24",
             "104.21.35.119"
         ])
-print(a)
+
+a1 = "Apache/2.4.29 (Ubuntu)"
+a2 = "cloudflare"
+a3 = "efs"
+
+print(a3.split('/')[0])
+"""
+#given ipv4addrs, return [min, max]
+def rtt_scanner(ipaddrs: list) -> list:
+    rt_times = []
+    for addr in ipaddrs:
+        try:
+            result = subprocess.run(["sh", "-c", "time echo -e '\x1dclose\x0d' | telnet 172.217.6.110 443"], \
+                check=True, stdout=subprocess.PIPE, timeout=2)
+            print(result)
+            
+            #pipein = subprocess.run(["time", "echo", "-e", "\x1dclose\x0d"], check=True, stdout=subprocess.PIPE)
+            #outcome = subprocess.run(['telnet', addr], input=pipein.stdout, stdout=subprocess.PIPE, timeout=2)
+        
+        except Exception as e:
+            print("rtt_failed")
+            print(e)
+        #a = result.stdout.split('\n\n')[2]
+        for row in result.stdout.split('\n'):
+            if row.startswith("real"):
+                print("here:")
+                print(row)
+                _, ret_time = row.split('m')
+                mins = ret_time[0].lstrip()
+                secs = ret_time[1].rstrip()[:-1]
+                print(mins, secs)
+                total_rtt = int(mins)*60 + int(secs)
+                rt_times.append(total_rtt)
+"""
+testaddrs = ["172.67.220.24", "104.21.35.119"]
+#res = rtt_scanner(testaddrs)
+print(###)
+print(res)

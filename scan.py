@@ -113,7 +113,7 @@ def httpinfo_scanner(target: str) -> dict:
 
         #http_server
         if 'server' in r.headers:
-            response["http_server"] = r.headers['server']
+            response["http_server"] = r.headers['server'].split('/')[0] #to get rid of Apache/blahblahblah
         else:
             response["http_server"] = None
 
