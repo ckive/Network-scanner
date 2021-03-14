@@ -171,19 +171,16 @@ def root_ca_scanner(target: str) -> str:
     return root_ca
 
 #Part j
+
 def rdns_scanner(ipaddrs: list) -> list:
     rdns = []
     for ipaddr in ipaddrs:
         try:
             n = dns.reversename.from_address(ipaddr)
-            found = dns.resolver.resolve(n, 'PTR')
-            (n, "PTR")[0]
-            rdns.append(found)
-        except TypeError:
-            print("type error...'ptr' thing")
+            found = dns.resolver.query(n, "PTR")[0]
+            rdns.append(str(found))
         except Exception as e:
             print("failed to reverse, try next ip")
-    return rdns
 
 #Part L
 def geo_location_scanner(ipaddrs: list) -> list:
@@ -247,6 +244,8 @@ def main():
         
         root_ca = root_ca_scanner(domain)
         rdns_names = rdns_scanner(ipv4addrs)
+        print(rdns_names)
+        print(type(rdns_names))
         geolocations = geo_location_scanner(ipv4addrs)
         ###
         scan_result[domain] = {
