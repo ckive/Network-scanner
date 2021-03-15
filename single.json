@@ -7,9 +7,9 @@
         "http_server": "Server",
         "insecure_http": true,
         "ipv4_addresses": [
+            "205.251.242.103",
             "54.239.28.85",
-            "176.32.103.205",
-            "205.251.242.103"
+            "176.32.103.205"
         ],
         "ipv6_addresses": [],
         "rdns_names": [
@@ -18,12 +18,15 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.036431074142456055,
-            0.05763602256774902
+            0.04088401794433594,
+            0.23393797874450684
         ],
-        "scan_time": 1615777625.2698328,
+        "scan_time": 1615835852.50349,
         "tls_versions": [
-            "TLSv1.0"
+            "TLSv1.0",
+            "TLSv1.3",
+            "TLSv1.2",
+            "SSLv3"
         ]
     },
     "tripadvisor.com": {
@@ -44,13 +47,15 @@
         "redirect_to_https": true,
         "root_ca": "GlobalSign Root CA - R3",
         "rtt_range": [
-            0.013052940368652344,
-            0.43170976638793945
+            0.014667034149169922,
+            1.028003215789795
         ],
-        "scan_time": 1615777615.691493,
+        "scan_time": 1615835840.375453,
         "tls_versions": [
             "TLSv1.2",
-            "TLSv1.3"
+            "TLSv1.3",
+            "TLSv1.0",
+            "SSLv3"
         ]
     }
 }

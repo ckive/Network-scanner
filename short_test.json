@@ -18,11 +18,16 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.035156965255737305,
-            0.06238412857055664
+            0.036110639572143555,
+            0.04232192039489746
         ],
-        "scan_time": 1615777683.6580071,
-        "tls_versions": []
+        "scan_time": 1615836207.318238,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.3",
+            "TLSv1.2",
+            "SSLv3"
+        ]
     },
     "clocktab.com": {
         "geo_locations": [
@@ -32,23 +37,24 @@
         "http_server": "cloudflare",
         "insecure_http": true,
         "ipv4_addresses": [
-            "172.67.220.24",
-            "104.21.35.119"
+            "104.21.35.119",
+            "172.67.220.24"
         ],
         "ipv6_addresses": [],
         "rdns_names": [],
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.010723114013671875,
-            0.05703878402709961
+            0.015380859375,
+            1.0298969745635986
         ],
-        "scan_time": 1615777787.8646872,
+        "scan_time": 1615836323.594931,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
             "TLSv1.2",
-            "TLSv1.3"
+            "TLSv1.3",
+            "SSLv3"
         ]
     },
     "illinois.edu": {
@@ -68,14 +74,16 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.020478010177612305,
-            0.026762008666992188
+            0.01826190948486328,
+            0.03342485427856445
         ],
-        "scan_time": 1615777773.9220202,
+        "scan_time": 1615836309.0057569,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
-            "TLSv1.2"
+            "TLSv1.2",
+            "TLSv1.3",
+            "SSLv3"
         ]
     },
     "it.eecs.northwestern.edu": {
@@ -95,7 +103,7 @@
         "redirect_to_https": false,
         "root_ca": null,
         "rtt_range": null,
-        "scan_time": 1615777756.655158,
+        "scan_time": 1615836293.1536598,
         "tls_versions": []
     },
     "kellogg.northwestern.edu": {
@@ -115,10 +123,10 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.03641915321350098,
-            0.046881914138793945
+            0.015136957168579102,
+            0.04427313804626465
         ],
-        "scan_time": 1615777745.193405,
+        "scan_time": 1615836279.902046,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
@@ -142,14 +150,16 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.01632833480834961,
-            0.026044130325317383
+            0.013933897018432617,
+            0.021955013275146484
         ],
-        "scan_time": 1615777738.541176,
+        "scan_time": 1615836274.484288,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
-            "TLSv1.2"
+            "TLSv1.2",
+            "TLSv1.3",
+            "SSLv3"
         ]
     },
     "northwestern.edu": {
@@ -169,14 +179,16 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.01608872413635254,
-            0.027323246002197266
+            0.01642012596130371,
+            1.0373833179473877
         ],
-        "scan_time": 1615777724.328775,
+        "scan_time": 1615836261.336171,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
-            "TLSv1.2"
+            "TLSv1.2",
+            "TLSv1.3",
+            "SSLv3"
         ]
     },
     "reddit.com": {
@@ -197,14 +209,16 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.010994911193847656,
-            0.16768789291381836
+            0.014339208602905273,
+            0.9389739036560059
         ],
-        "scan_time": 1615777712.826784,
+        "scan_time": 1615836242.86271,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
-            "TLSv1.2"
+            "TLSv1.2",
+            "TLSv1.3",
+            "SSLv3"
         ]
     },
     "stevetarzia.com": {
@@ -224,14 +238,16 @@
         "redirect_to_https": true,
         "root_ca": "Digital Signature Trust Co.",
         "rtt_range": [
-            0.05838322639465332,
-            0.06279969215393066
+            0.060936927795410156,
+            0.09498310089111328
         ],
-        "scan_time": 1615777780.960362,
+        "scan_time": 1615836315.536469,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
-            "TLSv1.2"
+            "TLSv1.2",
+            "TLSv1.3",
+            "SSLv3"
         ]
     },
     "uchicago.edu": {
@@ -251,13 +267,15 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.03818702697753906,
-            0.11336994171142578
+            0.03325700759887695,
+            0.06312966346740723
         ],
-        "scan_time": 1615777766.686742,
+        "scan_time": 1615836302.2085729,
         "tls_versions": [
             "TLSv1.2",
-            "TLSv1.3"
+            "TLSv1.3",
+            "TLSv1.0",
+            "SSLv3"
         ]
     },
     "users.cs.northwestern.edu": {
@@ -277,18 +295,22 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.013391971588134766,
-            0.035472869873046875
+            0.01773214340209961,
+            0.01977705955505371
         ],
-        "scan_time": 1615777750.6169548,
+        "scan_time": 1615836287.403201,
         "tls_versions": [
-            "TLSv1.2"
+            "TLSv1.2",
+            "TLSv1.3",
+            "TLSv1.0",
+            "SSLv3"
         ]
     },
     "yelp.com": {
         "geo_locations": [
             "Chicago, Illinois, United States",
-            "San Jose, California, United States",
+            "Denver, Colorado, United States",
+            "Tokyo, Tokyo, Japan",
             "Ashburn, Virginia, United States"
         ],
         "hsts": true,
@@ -296,7 +318,8 @@
         "insecure_http": true,
         "ipv4_addresses": [
             "199.232.76.116",
-            "151.101.40.116",
+            "151.101.68.116",
+            "151.101.108.116",
             "199.232.64.116"
         ],
         "ipv6_addresses": [],
@@ -304,15 +327,16 @@
         "redirect_to_https": true,
         "root_ca": null,
         "rtt_range": [
-            0.017318248748779297,
-            0.23041486740112305
+            0.012954235076904297,
+            1.0231380462646484
         ],
-        "scan_time": 1615777703.843957,
+        "scan_time": 1615836231.809559,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
             "TLSv1.2",
-            "TLSv1.3"
+            "TLSv1.3",
+            "SSLv3"
         ]
     },
     "youtube.com": {
@@ -323,32 +347,35 @@
         "http_server": "ESF",
         "insecure_http": true,
         "ipv4_addresses": [
-            "172.217.4.46",
-            "172.217.8.206",
-            "172.217.27.142",
             "172.217.4.238",
-            "172.217.7.14"
+            "172.217.8.206",
+            "172.217.9.46",
+            "172.217.27.142",
+            "172.217.4.78",
+            "172.217.2.110"
         ],
         "ipv6_addresses": [],
         "rdns_names": [
-            "lga15s46-in-f46.1e100.net.",
+            "ord30s31-in-f238.1e100.net.",
             "ord37s09-in-f14.1e100.net.",
+            "ord38s08-in-f14.1e100.net.",
             "tsa03s02-in-f14.1e100.net.",
-            "ord30s31-in-f14.1e100.net.",
-            "lga25s56-in-f14.1e100.net."
+            "lga15s47-in-f78.1e100.net.",
+            "iad23s72-in-f14.1e100.net."
         ],
         "redirect_to_https": true,
         "root_ca": "GlobalSign Root CA - R2",
         "rtt_range": [
-            0.011476993560791016,
-            0.2315809726715088
+            0.011755943298339844,
+            0.6209039688110352
         ],
-        "scan_time": 1615777675.1690738,
+        "scan_time": 1615836197.80629,
         "tls_versions": [
             "TLSv1.0",
             "TLSv1.1",
             "TLSv1.2",
-            "TLSv1.3"
+            "TLSv1.3",
+            "SSLv3"
         ]
     }
 }

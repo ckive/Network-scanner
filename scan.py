@@ -4,6 +4,7 @@ import dns.reversename
 from pathlib import Path
 import time
 import socket
+import ssl
 
 
 def usage():
@@ -166,6 +167,18 @@ def tls_scanner(target: str) -> list:
     except Exception as e:
         print("Exception")
     
+    context = ssl.create_default_context()
+
+    try:
+        with socket.create_connection((target, 443), timeout=2) as sock:
+            with context.wrap_socket(sock, server_hostname=target) as ssock:
+                for cipher in context.get_ciphers():
+                    protocol = cipher['protocol']
+                    if protocol not in tls_v:
+                        tls_v.append(protocol)
+    except Exception:
+        print(tls_v)
+        return tls_v
     print(tls_v)
     return tls_v
 
