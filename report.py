@@ -55,6 +55,9 @@ def main():
         print(e)
     finally:
         print(table.draw() + "\n")
+        f = open(outfile, "w")
+        f.write(table.draw() + "\n")
+        f.close()
 
     #Table 2
     table = texttable.Texttable()
@@ -86,6 +89,9 @@ def main():
         print("Error: Check if there are any rtt_range data available")
     finally:
         print(table.draw() + "\n")
+        f = open(outfile, "a")
+        f.write(table.draw() + "\n")
+        f.close()
 
     #Table 3
     table = texttable.Texttable()
@@ -103,6 +109,9 @@ def main():
         print("Error: Check if there are any root_cas scanned")
     finally:
         print(table.draw() + "\n")
+        f = open(outfile, "a")
+        f.write(table.draw() + "\n")
+        f.close()
 
     #Table 4
     table = texttable.Texttable()
@@ -120,6 +129,9 @@ def main():
         print("Error: Check if there are any http_server type scanned")
     finally:
         print(table.draw() + "\n")
+        f = open(outfile, "a")
+        f.write(table.draw() + "\n")
+        f.close()
         
     table = texttable.Texttable()
     table.set_max_width(150)
@@ -142,6 +154,9 @@ def main():
                 table.add_row([tls, 0])
     except Exception as e:
         print('tls is wrong')
+        f = open(outfile, "a")
+        f.write(table.draw() + "\n")
+        f.close()
 
     df_plain = df['insecure_http'].value_counts(ascending=False)
     num_plain = df_plain[True]
@@ -160,6 +175,9 @@ def main():
     table.add_row(['IPv6', (num_ipv6 / denominator) * 100])
 
     print(table.draw() + "\n")
+    f = open(outfile, "a")
+    f.write(table.draw() + "\n")
+    f.close()
 
 
 
