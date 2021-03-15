@@ -7,16 +7,21 @@
         "http_server": "Server",
         "insecure_http": true,
         "ipv4_addresses": [
-            "54.239.28.85",
+            "176.32.103.205",
             "205.251.242.103",
-            "176.32.103.205"
+            "54.239.28.85"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
+        "rdns_names": [
+            "s3-console-us-standard.console.aws.amazon.com."
+        ],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536107.6229467,
+        "rtt_range": [
+            0.035156965255737305,
+            0.06238412857055664
+        ],
+        "scan_time": 1615777683.6580071,
         "tls_versions": []
     },
     "clocktab.com": {
@@ -27,37 +32,51 @@
         "http_server": "cloudflare",
         "insecure_http": true,
         "ipv4_addresses": [
-            "104.21.35.119",
-            "172.67.220.24"
+            "172.67.220.24",
+            "104.21.35.119"
         ],
-        "ipv6_addresses": [
-            "2606:4700:3030::6815:2377",
-            "2606:4700:3036::ac43:dc18"
-        ],
+        "ipv6_addresses": [],
         "rdns_names": [],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536206.4517045,
-        "tls_versions": []
+        "rtt_range": [
+            0.010723114013671875,
+            0.05703878402709961
+        ],
+        "scan_time": 1615777787.8646872,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
     },
     "illinois.edu": {
         "geo_locations": [
             "Urbana, Illinois, United States"
         ],
         "hsts": false,
-        "http_server": "Apache/2.2.15 (Red Hat) mod_ssl/2.2.15 OpenSSL/1.0.1e-fips",
+        "http_server": "Apache",
         "insecure_http": true,
         "ipv4_addresses": [
             "192.17.172.3"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
+        "rdns_names": [
+            "tardis.techservices.illinois.edu."
+        ],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536187.7871737,
-        "tls_versions": []
+        "rtt_range": [
+            0.020478010177612305,
+            0.026762008666992188
+        ],
+        "scan_time": 1615777773.9220202,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2"
+        ]
     },
     "it.eecs.northwestern.edu": {
         "geo_locations": [
@@ -70,11 +89,13 @@
             "129.105.8.2"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
+        "rdns_names": [
+            "it.ece.northwestern.edu."
+        ],
         "redirect_to_https": false,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536166.289448,
+        "rtt_range": null,
+        "scan_time": 1615777756.655158,
         "tls_versions": []
     },
     "kellogg.northwestern.edu": {
@@ -82,95 +103,136 @@
             "United States"
         ],
         "hsts": false,
-        "http_server": "Microsoft-IIS/10.0",
+        "http_server": "Microsoft-IIS",
         "insecure_http": true,
         "ipv4_addresses": [
             "165.124.147.150"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
+        "rdns_names": [
+            "kellogg.northwestern.edu."
+        ],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536150.233552,
-        "tls_versions": []
+        "rtt_range": [
+            0.03641915321350098,
+            0.046881914138793945
+        ],
+        "scan_time": 1615777745.193405,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2"
+        ]
     },
     "mccormick.northwestern.edu": {
         "geo_locations": [
             "Chicago, Illinois, United States"
         ],
         "hsts": false,
-        "http_server": "Apache/2.4.7 (Ubuntu)",
+        "http_server": "Apache",
         "insecure_http": true,
         "ipv4_addresses": [
             "129.105.1.129"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
+        "rdns_names": [
+            "mccormick.northwestern.edu."
+        ],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536140.3899493,
-        "tls_versions": []
+        "rtt_range": [
+            0.01632833480834961,
+            0.026044130325317383
+        ],
+        "scan_time": 1615777738.541176,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2"
+        ]
     },
     "northwestern.edu": {
         "geo_locations": [
             "United States"
         ],
         "hsts": false,
-        "http_server": null,
+        "http_server": "Apache",
         "insecure_http": true,
         "ipv4_addresses": [
             "129.105.136.48"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
-        "redirect_to_https": false,
+        "rdns_names": [
+            "evcommon-caesar-vip.northwestern.edu."
+        ],
+        "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536135.2708473,
-        "tls_versions": []
+        "rtt_range": [
+            0.01608872413635254,
+            0.027323246002197266
+        ],
+        "scan_time": 1615777724.328775,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2"
+        ]
     },
     "reddit.com": {
         "geo_locations": [
-            "Ireland",
             "United States"
         ],
         "hsts": true,
         "http_server": "snooserv",
         "insecure_http": true,
         "ipv4_addresses": [
-            "31.13.82.17",
-            "104.244.43.99"
+            "151.101.65.140",
+            "151.101.129.140",
+            "151.101.193.140",
+            "151.101.1.140"
         ],
-        "ipv6_addresses": [
-            "2001::6ca0:a5ad",
-            "2001::1f0d:4c08"
-        ],
+        "ipv6_addresses": [],
         "rdns_names": [],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536128.9246714,
-        "tls_versions": []
+        "rtt_range": [
+            0.010994911193847656,
+            0.16768789291381836
+        ],
+        "scan_time": 1615777712.826784,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2"
+        ]
     },
     "stevetarzia.com": {
         "geo_locations": [
             "Boardman, Oregon, United States"
         ],
         "hsts": false,
-        "http_server": null,
+        "http_server": "Apache",
         "insecure_http": true,
         "ipv4_addresses": [
             "54.245.121.172"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
-        "redirect_to_https": false,
+        "rdns_names": [
+            "grits.stevetarzia.com."
+        ],
+        "redirect_to_https": true,
         "root_ca": "Digital Signature Trust Co.",
-        "rtt_range": [],
-        "scan_time": 1615536195.7705626,
-        "tls_versions": []
+        "rtt_range": [
+            0.05838322639465332,
+            0.06279969215393066
+        ],
+        "scan_time": 1615777780.960362,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2"
+        ]
     },
     "uchicago.edu": {
         "geo_locations": [
@@ -183,12 +245,20 @@
             "34.200.129.209"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
+        "rdns_names": [
+            "ec2-34-200-129-209.compute-1.amazonaws.com."
+        ],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536180.2138455,
-        "tls_versions": []
+        "rtt_range": [
+            0.03818702697753906,
+            0.11336994171142578
+        ],
+        "scan_time": 1615777766.686742,
+        "tls_versions": [
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
     },
     "users.cs.northwestern.edu": {
         "geo_locations": [
@@ -201,30 +271,49 @@
             "165.124.180.20"
         ],
         "ipv6_addresses": [],
-        "rdns_names": [],
+        "rdns_names": [
+            "web1.cs.northwestern.edu."
+        ],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536158.5141804,
-        "tls_versions": []
+        "rtt_range": [
+            0.013391971588134766,
+            0.035472869873046875
+        ],
+        "scan_time": 1615777750.6169548,
+        "tls_versions": [
+            "TLSv1.2"
+        ]
     },
     "yelp.com": {
         "geo_locations": [
-            "Los Angeles, California, United States"
+            "Chicago, Illinois, United States",
+            "San Jose, California, United States",
+            "Ashburn, Virginia, United States"
         ],
         "hsts": true,
         "http_server": "envoy",
         "insecure_http": true,
         "ipv4_addresses": [
-            "151.101.196.116"
+            "199.232.76.116",
+            "151.101.40.116",
+            "199.232.64.116"
         ],
         "ipv6_addresses": [],
         "rdns_names": [],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536122.2140703,
-        "tls_versions": []
+        "rtt_range": [
+            0.017318248748779297,
+            0.23041486740112305
+        ],
+        "scan_time": 1615777703.843957,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
     },
     "youtube.com": {
         "geo_locations": [
@@ -234,17 +323,32 @@
         "http_server": "ESF",
         "insecure_http": true,
         "ipv4_addresses": [
-            "157.240.3.20"
+            "172.217.4.46",
+            "172.217.8.206",
+            "172.217.27.142",
+            "172.217.4.238",
+            "172.217.7.14"
         ],
-        "ipv6_addresses": [
-            "2001::1f0d:4233",
-            "2001::4a75:b266"
+        "ipv6_addresses": [],
+        "rdns_names": [
+            "lga15s46-in-f46.1e100.net.",
+            "ord37s09-in-f14.1e100.net.",
+            "tsa03s02-in-f14.1e100.net.",
+            "ord30s31-in-f14.1e100.net.",
+            "lga25s56-in-f14.1e100.net."
         ],
-        "rdns_names": [],
         "redirect_to_https": true,
-        "root_ca": null,
-        "rtt_range": [],
-        "scan_time": 1615536101.554569,
-        "tls_versions": []
+        "root_ca": "GlobalSign Root CA - R2",
+        "rtt_range": [
+            0.011476993560791016,
+            0.2315809726715088
+        ],
+        "scan_time": 1615777675.1690738,
+        "tls_versions": [
+            "TLSv1.0",
+            "TLSv1.1",
+            "TLSv1.2",
+            "TLSv1.3"
+        ]
     }
 }

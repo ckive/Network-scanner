@@ -7,9 +7,9 @@
         "http_server": "Server",
         "insecure_http": true,
         "ipv4_addresses": [
-            "205.251.242.103",
             "54.239.28.85",
-            "176.32.103.205"
+            "176.32.103.205",
+            "205.251.242.103"
         ],
         "ipv6_addresses": [],
         "rdns_names": [
@@ -17,8 +17,11 @@
         ],
         "redirect_to_https": true,
         "root_ca": null,
-        "rtt_range": null,
-        "scan_time": 1615777274.87688,
+        "rtt_range": [
+            0.036431074142456055,
+            0.05763602256774902
+        ],
+        "scan_time": 1615777625.2698328,
         "tls_versions": [
             "TLSv1.0"
         ]
@@ -32,19 +35,19 @@
         "http_server": "envoy",
         "insecure_http": true,
         "ipv4_addresses": [
-            "192.229.189.15",
             "192.229.162.112",
-            "192.229.182.112"
+            "192.229.182.112",
+            "192.229.189.15"
         ],
         "ipv6_addresses": [],
         "rdns_names": [],
         "redirect_to_https": true,
         "root_ca": "GlobalSign Root CA - R3",
         "rtt_range": [
-            0.01702117919921875,
-            0.27617406845092773
+            0.013052940368652344,
+            0.43170976638793945
         ],
-        "scan_time": 1615777264.713567,
+        "scan_time": 1615777615.691493,
         "tls_versions": [
             "TLSv1.2",
             "TLSv1.3"

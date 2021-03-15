@@ -248,10 +248,12 @@ def rtt_scanner(ipaddrs: list) -> list:
             try:
                 s.connect((str(addr), 443))
             except Exception:
-                return None
+                continue
             t2 = time.time()
             s.close()
             rt_times.append(t2 - t1)
+    if len(rt_times) == 0:
+        return None
 
     return [min(rt_times), max(rt_times)]
 
