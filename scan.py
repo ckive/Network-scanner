@@ -245,7 +245,10 @@ def rtt_scanner(ipaddrs: list) -> list:
             s = socket.socket()
             s.settimeout(2)
             t1 = time.time()
-            s.connect((addr, 443))
+            try:
+                s.connect((str(addr), 443))
+            except Exception:
+                return None
             t2 = time.time()
             s.close()
             rt_times.append(t2 - t1)
