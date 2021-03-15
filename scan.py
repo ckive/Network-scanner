@@ -302,7 +302,7 @@ def main():
             "tls_versions": tls_vs,
             "root_ca": root_ca,
             "rdns_names": rdns_names,
-            "rtt_range": rtt_range,            #TODO
+            "rtt_range": rtt_range,            
             "geo_locations": geolocations,
         }
 
