@@ -238,6 +238,21 @@ def geo_location_scanner(ipaddrs: list) -> list:
     
     return locations
 
+def rtt_scanner(ipaddrs: list) -> list:
+    rt_times = []
+    for addr in ipaddrs:
+        for _ in range(5):
+            s = socket.socket()
+            s.settimeout(2)
+            t1 = time.time()
+            s.connect((addr, 443))
+            t2 = time.time()
+            s.close()
+            rt_times.append(t2 - t1)
+
+    return [min(rt_times), max(rt_times)]
+
+
 def main():
     if len(sys.argv) != 3:
         usage()
@@ -268,6 +283,7 @@ def main():
         tls_vs = tls_scanner(domain)
         root_ca = root_ca_scanner(domain)
         rdns_names = rdns_scanner(ipv4addrs)
+        rtt_range = rtt_scanner(ipv4addrs)
         print(rdns_names)
         print(type(rdns_names))
         geolocations = geo_location_scanner(ipv4addrs)
@@ -283,7 +299,7 @@ def main():
             "tls_versions": tls_vs,
             "root_ca": root_ca,
             "rdns_names": rdns_names,
-            "rtt_range": [2, 20],            #TODO
+            "rtt_range": rtt_range,            #TODO
             "geo_locations": geolocations,
         }
 
