@@ -2,6 +2,8 @@ import sys, json, os, time, subprocess, socket, requests, maxminddb
 import dns.resolver
 import dns.reversename
 from pathlib import Path
+import time
+import socket
 
 
 def usage():
