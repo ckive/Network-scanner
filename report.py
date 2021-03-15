@@ -36,6 +36,7 @@ def main():
         #df is already what we want for 1. Just use texttable to transform it
         df = pd.read_json(infile).transpose()
 
+
     #Table 1
     table = texttable.Texttable()
     table.set_max_width(150)
@@ -61,8 +62,8 @@ def main():
     table.header(['domain', 'rtt_min', 'rtt_max'])
     
     #filter out any empty rtt_range
-    df_n = pd.DataFrame(df[df['rtt_range'].map(len) > 0])
-    
+    df_n = df[~df['rtt_range'].isnull()]
+
     try:
         #https://stackoverflow.com/questions/35491274/pandas-split-column-of-lists-into-multiple-columns/35491399
         df_n[['rtt_min', 'rtt_max']] = pd.DataFrame(df_n.rtt_range.tolist(), index=df_n.index)
@@ -120,6 +121,47 @@ def main():
     finally:
         print(table.draw() + "\n")
         
+    table = texttable.Texttable()
+    table.set_max_width(150)
+    table.header(['Feature', 'Percent of websites supporting'])
+    denominator = df.shape[0]
+    try:
+        only_tls = df['tls_versions']
+        tls_dict = dict()
+        for i in range(only_tls.shape[0]):
+            for version in only_tls[i]:
+                if version in tls_dict:
+                    tls_dict[version] += 1
+                else:
+                    tls_dict[version] = 1
+        all_tls = ['TLSv1.0', 'TLSv1.1', 'TLSv1.2', 'TLSv1.3', 'SSLv2', 'SSLv3']
+        for tls in all_tls:
+            if tls in tls_dict:
+                table.add_row([tls, (tls_dict[tls] / denominator) * 100])
+            else:
+                table.add_row([tls, 0])
+    except Exception as e:
+        print('tls is wrong')
+
+    df_plain = df['insecure_http'].value_counts(ascending=False)
+    num_plain = df_plain[True]
+    table.add_row(['Plain HTTP', (num_plain / denominator) * 100])
+
+    df_redirect = df['redirect_to_https'].value_counts(ascending=False)
+    num_redirect = df_redirect[True]
+    table.add_row(['Redirect to HTTPS', (num_redirect / denominator) * 100])
+
+    df_hsts = df['hsts'].value_counts(ascending=False)
+    num_hsts = df_hsts[True]
+    table.add_row(['HSTS', (num_hsts / denominator) * 100])
+
+    df_ipv6 = df[df['ipv6_addresses'].map(lambda d: len(d)) > 0]
+    num_ipv6 = df_ipv6.shape[0]
+    table.add_row(['IPv6', (num_ipv6 / denominator) * 100])
+
+    print(table.draw() + "\n")
+
+
 
 
 if __name__ == '__main__':
